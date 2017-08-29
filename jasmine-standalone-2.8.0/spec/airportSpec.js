@@ -4,9 +4,9 @@ beforeEach(function() {
 
 describe('Airport', function() {
   describe("#landing", function() {
-    it('#landing', function() {
-      airport.landing
-      expect(hanger).toEqual(hanger.length(1));
+    it("hanger has one plane when landing", function() {
+      airport.landing();
+      expect(airport.hanger.length).toEqual(1);
     })
   })
 })
