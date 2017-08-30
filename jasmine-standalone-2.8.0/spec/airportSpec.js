@@ -26,7 +26,9 @@ describe('Airport', function() {
       for (var i = 0; i < 3; i++) {
         airport.landing();
       }
-      expect(airport.landing()).toThrow("Hanger full");
+      expect(function() {
+        airport.landing()
+      }).toThrow("Hanger full");
     })
   })
 
@@ -40,7 +42,17 @@ describe('Airport', function() {
 
   describe("#take_off", function() {
     it("plane cannot take off if hanger is empty", function() {
-      expect(airport.take_off()).toThrow("No planes in hanger!");
+      expect(function() {
+        airport.take_off()
+      }).toThrow("No planes in hanger!");
     })
   })
+})
+
+it('when stormy should raise error when trying to take off', function() {
+  weather = {
+    isStormy: function() {
+      return true;
+    }
+  };
 })
